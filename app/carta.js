@@ -14,22 +14,16 @@ export default class Carta extends Component {
   }
   render() {
     return (
-      <View>
-      {
-        this.props.carta.map((carta,idx) => {
-          return (
-            <View key={idx} style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
-              <Text>{ carta.id }</Text>
-              <Text>{ carta.texto }</Text>
-              <Text>{
-                carta.escolha ? ("SUCESSO OU FALHA") : null 
-              }
-              </Text>
-            </View>
-          )
-        })
-      }
+      
+      <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
+        <Text>{ this.props.carta.id }</Text>
+        <Text>{ this.props.carta.texto }</Text>
+        <Text>{
+          this.props.carta.escolha ? ("SUCESSO OU FALHA") : null 
+        }
+        </Text>
       </View>
     );
+
   }
 }

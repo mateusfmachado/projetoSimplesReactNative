@@ -26,13 +26,12 @@ export default class projetoTeste extends Component {
 
   retirarCarta() {
     let cartas = this.state.cartas.slice();
+    if(cartas.length <1) return;
     const carta = cartas.pop();
     let descarte = this.state.descarte.slice();
     descarte.push(carta);
     this.setState({cartas: cartas, descarte: descarte});
-    const cartasAux = [];
-    cartasAux.push(carta);
-    Actions.carta({carta: cartasAux});
+    Actions.carta({carta});
   }
 
   render() {
@@ -45,7 +44,7 @@ export default class projetoTeste extends Component {
           < TouchableOpacity style={{borderWidth: 2, padding: 5}} onPress={ () => alert(JSON.stringify(this.state.cartas)) }>
             <Text>Cartas Restantes</Text>
           </ TouchableOpacity>
-          < TouchableOpacity style={{borderWidth: 2, padding: 5}} onPress={ () => Actions.carta({carta: this.state.descarte}) }>
+          < TouchableOpacity style={{borderWidth: 2, padding: 5}} onPress={ () => alert(JSON.stringify(this.state.descarte)) }>
             <Text>Discarte</Text>
           </ TouchableOpacity>
         </View>
